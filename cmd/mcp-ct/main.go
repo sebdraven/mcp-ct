@@ -95,6 +95,13 @@ func main() {
 	}
 }
 
+func envOr(key, def string) string {
+	if v := os.Getenv(key); v != "" {
+		return v
+	}
+	return def
+}
+
 func exitWith(v any, err error) {
 	if err != nil {
 		log.Fatalf("%v", err)
